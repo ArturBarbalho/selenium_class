@@ -6,13 +6,12 @@ import os
 
 class WD(webdriver.Chrome):
     def __init__(self, link, driver_path= r"C:/Selenium Driver"):
-        self.link = link
         options = Options()
         options.add_experimental_option("detach", True)
         os.environ['PATH'] += driver_path
         super(WD, self).__init__(options=options)
         self.implicitly_wait(5)
-        self.get(self.link) 
+        self.get(link) 
         self.Keys = Keys
 
     def ByCssSelector(self, selector):

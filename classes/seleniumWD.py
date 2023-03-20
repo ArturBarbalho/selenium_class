@@ -10,6 +10,7 @@ class WD(webdriver.Chrome):
         options.add_experimental_option("detach", True)
         os.environ['PATH'] += driver_path
         super(WD, self).__init__(options=options)
+        self.set_window_size(1400,1000)
         self.implicitly_wait(5)
         self.get(link) 
         self.Keys = Keys
@@ -24,4 +25,12 @@ class WD(webdriver.Chrome):
     
     def ByClass(self, Class):
         element = self.find_element(By.CLASS_NAME, Class) 
+        return element
+    
+    def ByXPATH(self, selector):
+        element = self.find_element(By.XPATH, selector) 
+        return element
+    
+    def ByText(self, text):
+        element = self.find_element(By.XPATH, f"//*[contains(text(),'{text}')]" ) 
         return element

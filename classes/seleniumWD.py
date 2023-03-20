@@ -5,9 +5,11 @@ from selenium.webdriver.common.keys import Keys
 import os
 
 class WD(webdriver.Chrome):
-    def __init__(self, link, driver_path= r"C:/Selenium Driver"):
+    def __init__(self, link, hide = False, driver_path= r"C:/Selenium Driver"): 
         options = Options()
         options.add_experimental_option("detach", True)
+        if(hide):
+            options.add_argument('--headless')
         os.environ['PATH'] += driver_path
         super(WD, self).__init__(options=options)
         self.set_window_size(1400,1000)

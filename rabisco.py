@@ -7,6 +7,7 @@ driver = WD(link)
 
 search = driver.ByText('Products')
 search.click()
-
+text = search.text
+print('texto: ' + text)
 
 

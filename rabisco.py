@@ -6,8 +6,6 @@ link = 'https://stackoverflow.com/questions/19442562/using-selenium-webdriver-to
 driver = WD(link)
 
 search = driver.ByText('Products')
-search.click()
-text = search.text
-print('texto: ' + text)
+
 
 

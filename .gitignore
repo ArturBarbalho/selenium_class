@@ -1,4 +1,4 @@
 build/
 dist/
-.spec
-.txt
+init.spec
+*.txt

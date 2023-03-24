@@ -1,5 +1,6 @@
 from classes.run import Run
 from tkinter import *
+import threading
 
 #cria o programa
 app = Tk()
@@ -9,9 +10,13 @@ app.title('driverPill')
 app.geometry('1366x720') #tamanho da janela
 app.configure(background="black") #estilos visuais, parece com css
 
-run = Run()
+def start():
+    run = Run()
+    #evita que app fique travado enquanto executa função
+    threading.Thread(target=run.start).start()
 
-init = Button(app, command=run.start, text='start srapping')
+
+init = Button(app, command=start, text='start srapping')
 init.pack()
 
 #abre o programa
@@ -19,11 +24,11 @@ app.mainloop()
 
 
 
-#https://pt.stackoverflow.com/questions/293902/tkinter-travando-na-fun%C3%A7%C3%A3o
+
 
 #alterar bootload do pyinstaller para problema no antivirus
 #https://pyinstaller.org/en/stable/bootloader-building.html
 
-#resolver console do crhomedriver
+
 
 
